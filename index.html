@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script defer src="https://api.trajettu.com/sdk/tracker.js?key=site_d2gApY4UP0p9Zl50tIEfLEY2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
@@ -28,12 +29,12 @@
                     <b>Sin dietas estrictas ni ingredientes caros.</b> Un plan paso a paso que transformará tu digestión de forma 100% natural.
                 </p>
                 <div class="hero-actions">
-                    <a href="https://pay.hotmart.com/Y105081242E" class="btn btn-primary">¡Quiero empezar mi plan de 7 días!</a>
+                    <a href="https://pay.hotmart.com/Y105081242E?checkoutMode=10" class="btn btn-primary">¡Quiero empezar mi plan de 7 días!</a>
                     <p style="margin-top: 20px; font-size: 0.9rem; color: var(--text-muted); opacity: 0.8;">✅ Pago seguro y acceso inmediato</p>
                 </div>
             </div>
             <div class="hero-image animate" style="animation-delay: 0.2s;">
-                <img src="hero-banner.webp" alt="Hígado Vital Banner" height="auto">
+                <img src="BANNER SITE SEM FUNDO.webp" alt="Hígado Vital Plan Mockup" height="auto" style="filter:none; transform:scale(1); border-radius:0;">
             </div>
         </div>
     </header>
@@ -193,7 +194,7 @@
                         </ul>
                     </div>
                     <div style="margin-top: 40px;">
-                        <a href="https://pay.hotmart.com/Y105081242E" class="btn btn-primary">¡Sí, quiero empezar mi plan hoy!</a>
+                        <a href="https://pay.hotmart.com/Y105081242E?checkoutMode=10" class="btn btn-primary">¡Sí, quiero empezar mi plan hoy!</a>
                     </div>
                 </div>
             </div>
@@ -366,7 +367,7 @@
         <div class="container">
             <h3 style="color: white; margin-bottom: 25px;">Hígado Vital</h3>
             <p style="margin-bottom: 30px; font-size: 0.9rem;">© 2026 Hígado Vital — Todos los derechos reservados.</p>
-            <p style="max-width: 700px; margin: 0 auto 40px; font-size: 0.85rem; opacity: 0.6;">Aviso legal: El contenido de esta página es informativo. No reemplaza el consejo médico profesional. Consulta con tu médico antes de realizar cambios en tu dieta.</p>
+            <p style="max-width: 700px; margin: 0 auto 40px; font-size: 0.85rem; opacity: 0.6;">Aviso legal: El contenido de esta página es informativo y creado por la Lic. Valeria Rosas. No reemplaza el consejo médico profesional. Consulta con tu médico antes de realizar cambios en tu dieta.</p>
             <div style="display: flex; justify-content: center; gap: 30px; font-size: 0.9rem; font-weight: 500;">
                 <a href="#">Términos y Condiciones</a>
                 <a href="#">Política de Privacidad</a>
@@ -380,6 +381,20 @@
         <div>
             <p class="toast-title"><span id="toast-name">María G.</span> acaba de adquirir su plan.</p>
             <p class="toast-time">Hace <span id="toast-time">10</span> minutos</p>
+        </div>
+    </div>
+
+    <!-- EXIT INTENT / BACK REDIRECT MODAL -->
+    <div class="modal-overlay" id="exitModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal()">✖</span>
+            <div class="discount-badge">¡ESPERA! NO TE VAYAS</div>
+            <h2 style="font-size: 2.2rem; margin-bottom: 15px; color: var(--text-dark); font-family: 'Playfair Display', serif;">¡Has desbloqueado un <span style="color: var(--primary);">30% de Descuento</span>!</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px;">
+                Sabemos que quieres recuperar tu energía. Queremos ayudarte a dar el primer paso hoy. Llévate el Plan de 7 Días por solo <b style="color: var(--text-dark); font-size: 1.2rem;">$11.90 USD</b> ahora mismo.
+            </p>
+            <a href="https://pay.hotmart.com/Y105081242E?off=chxa6m6c" class="btn btn-primary" style="width: 100%; font-size: 1.2rem; padding: 20px;">¡Sí, quiero el 30% de Descuento!</a>
+            <p style="margin-top: 15px; font-size: 0.9rem; color: #aaa; cursor:pointer;" onclick="closeModal()">No gracias, prefiero pagar el precio original.</p>
         </div>
     </div>
 

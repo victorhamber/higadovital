@@ -101,3 +101,65 @@ setTimeout(() => {
         showRandomToast();
     }, Math.random() * 15000 + 15000); // Trigger every 15-30 seconds
 }, 8000); // first shows after 8 seconds
+
+// --- EXIT INTENT / BACK REDIRECT ---
+const exitModal = document.getElementById('exitModal');
+let popupTriggered = false;
+
+function triggerExitPopup() {
+    if (popupTriggered) return;
+    popupTriggered = true;
+    
+    // Show modal
+    exitModal.classList.add('active');
+
+    // Fire confetti
+    var duration = 3000;
+    var animationEnd = Date.now() + duration;
+    var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100001 };
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    var interval = setInterval(function() {
+      var timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      var particleCount = 50 * (timeLeft / duration);
+      confetti(Object.assign({}, defaults, { particleCount,
+        origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+      }));
+      confetti(Object.assign({}, defaults, { particleCount,
+        origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+      }));
+    }, 250);
+}
+
+function closeModal() {
+    exitModal.classList.remove('active');
+}
+
+// 1. Mouse Leave Intent (Desktop)
+document.addEventListener('mouseleave', (e) => {
+    if (e.clientY <= 0) {
+        triggerExitPopup();
+    }
+});
+
+// 2. Back Redirect Logic (Mobile/All)
+// Push a state to the history so when they hit back, they stay on the page
+window.addEventListener('load', () => {
+    if (window.history && window.history.pushState) {
+        window.history.pushState('back', null, null);
+        window.addEventListener('popstate', (e) => {
+            // When back is pressed
+            triggerExitPopup();
+            // Optional: push state again if you want to block back multiple times
+            // window.history.pushState('back', null, null);
+        });
+    }
+});
