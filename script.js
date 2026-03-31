@@ -64,3 +64,40 @@ window.addEventListener('DOMContentLoaded', () => {
     const animElements = document.querySelectorAll('.animate');
     animElements.forEach(el => observer.observe(el));
 });
+
+// --- TOAST NOTIFICATIONS ---
+const names = ["María G.", "Carmen R.", "Lucía M.", "Ana F.", "Elena S.", "Rosa V.", "Marta C.", "Juana L.", "Patricia", "Sofía", "Teresa"];
+const toast = document.getElementById('sales-toast');
+const toastName = document.getElementById('toast-name');
+const toastTime = document.getElementById('toast-time');
+const toastImg = document.getElementById('toast-img');
+
+function showRandomToast() {
+    if (!toast) return;
+    
+    // Pick random data
+    const randomName = names[Math.floor(Math.random() * names.length)];
+    const randomTime = Math.floor(Math.random() * 59) + 1; // 1 to 59 mins
+    
+    // Update elements
+    toastName.textContent = randomName;
+    toastTime.textContent = randomTime;
+    toastImg.src = `https://ui-avatars.com/api/?name=${randomName.replace(' ', '+')}&background=4a8c2d&color=fff&rounded=true`;
+
+    // Show toast
+    toast.classList.add('show');
+
+    // Hide after 5 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 5000);
+}
+
+// Initial delay then trigger randomly
+setTimeout(() => {
+    showRandomToast();
+    // Schedule next toasts
+    setInterval(() => {
+        showRandomToast();
+    }, Math.random() * 15000 + 15000); // Trigger every 15-30 seconds
+}, 8000); // first shows after 8 seconds
