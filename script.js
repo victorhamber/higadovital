@@ -150,16 +150,22 @@ document.addEventListener('mouseleave', (e) => {
     }
 });
 
-// 2. Back Redirect Logic (Mobile/All)
-// Push a state to the history so when they hit back, they stay on the page
-window.addEventListener('load', () => {
-    if (window.history && window.history.pushState) {
-        window.history.pushState('back', null, null);
-        window.addEventListener('popstate', (e) => {
-            // When back is pressed
-            triggerExitPopup();
-            // Optional: push state again if you want to block back multiple times
-            // window.history.pushState('back', null, null);
-        });
-    }
-});
+// 2. Back Redirect Logic (Industry Standard Hash Technique)
+(function(window, location) {
+    window.addEventListener('load', () => {
+        // Step 1: Push the "back" hash and the actual page
+        history.replaceState(null, document.title, location.pathname + "#!/back");
+        history.pushState(null, document.title, location.pathname);
+
+        // Step 2: Watch for popstate
+        window.addEventListener("popstate", function() {
+            if(location.hash === "#!/back") {
+                // If user tried to go back to the hash, clear it and trigger popup
+                history.replaceState(null, document.title, location.pathname);
+                setTimeout(function(){
+                    triggerExitPopup();
+                }, 0);
+            }
+        }, false);
+    });
+}(window, location));
