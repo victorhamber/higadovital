@@ -150,17 +150,21 @@ document.addEventListener('mouseleave', (e) => {
     }
 });
 
-// 2. Back Redirect Logic (Industry Standard Hash Technique)
+// 2. Back Redirect Logic (Android Chrome Compatibility)
 (function(window, location) {
     window.addEventListener('load', () => {
-        // Step 1: Push the "back" hash and the actual page
-        history.replaceState(null, document.title, location.pathname + "#!/back");
-        history.pushState(null, document.title, location.pathname);
+        // Step 1: Small delay for Chrome Android to accept the history entry
+        setTimeout(() => {
+            // Push the hash state
+            history.pushState(null, document.title, location.pathname + "#!/back");
+            // Push the current page state on top
+            history.pushState(null, document.title, location.pathname);
+        }, 500);
 
-        // Step 2: Watch for popstate
+        // Step 2: Listen for the popstate (back button)
         window.addEventListener("popstate", function() {
             if(location.hash === "#!/back") {
-                // If user tried to go back to the hash, clear it and trigger popup
+                // Clear the hash and trigger the visual popup
                 history.replaceState(null, document.title, location.pathname);
                 setTimeout(function(){
                     triggerExitPopup();
