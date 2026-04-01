@@ -150,26 +150,40 @@ document.addEventListener('mouseleave', (e) => {
     }
 });
 
-// 2. Back Redirect Logic (Android Chrome Compatibility)
+// 2. Back Redirect Logic (Maximum Compatibility with Android Chrome)
 (function(window, location) {
-    window.addEventListener('load', () => {
-        // Step 1: Small delay for Chrome Android to accept the history entry
-        setTimeout(() => {
-            // Push the hash state
-            history.pushState(null, document.title, location.pathname + "#!/back");
-            // Push the current page state on top
-            history.pushState(null, document.title, location.pathname);
-        }, 500);
+    let historyPushed = false;
 
-        // Step 2: Listen for the popstate (back button)
-        window.addEventListener("popstate", function() {
-            if(location.hash === "#!/back") {
-                // Clear the hash and trigger the visual popup
-                history.replaceState(null, document.title, location.pathname);
-                setTimeout(function(){
-                    triggerExitPopup();
-                }, 0);
-            }
-        }, false);
+    // The key for Android: only push history after some user interaction
+    const pushHistory = () => {
+        if (historyPushed) return;
+        historyPushed = true;
+
+        // Step 1: Push the "back" hash
+        history.pushState(null, document.title, location.pathname + "#!/back");
+        // Step 2: Push the current page state on top
+        history.pushState(null, document.title, location.pathname);
+        console.log("Back-Redirect: History primed after interaction");
+    };
+
+    // Listen for common user interactions (scroll, touch, click)
+    ['touchstart', 'mousedown', 'scroll'].forEach(evt => {
+        window.addEventListener(evt, pushHistory, { once: true, passive: true });
     });
+
+    // Also try a delayed push as fallback
+    window.addEventListener('load', () => {
+        setTimeout(pushHistory, 2000);
+    });
+
+    // Listen for the popstate (back button)
+    window.addEventListener("popstate", function() {
+        if(location.hash === "#!/back") {
+            // Clear the hash and trigger the visual popup
+            history.replaceState(null, document.title, location.pathname);
+            setTimeout(function(){
+                triggerExitPopup();
+            }, 0);
+        }
+    }, false);
 }(window, location));
