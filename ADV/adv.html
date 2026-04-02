@@ -765,7 +765,7 @@
 
 <!-- TOP BAR -->
 <div class="top-bar">
-  <span>Salud &amp; Bienestar</span> &nbsp;·&nbsp; Edición Digital &nbsp;·&nbsp; Contenido Informativo Patrocinado
+  <span>Salud &amp; Bienestar</span> &nbsp;·&nbsp; <span style="color:var(--gold-light);">Atención lectores en <span class="user-city">su región</span></span> &nbsp;·&nbsp; Edición Digital
 </div>
 
 <!-- MASTHEAD -->
@@ -819,6 +819,10 @@
 <div class="article-wrap">
 
   <!-- LEAD -->
+  <div style="background: #fff5f5; border-left: 4px solid #cc0000; padding: 15px; margin-bottom: 30px; font-family: 'Source Sans 3', sans-serif; font-size: 15px; border-radius: 0 4px 4px 0;">
+    <strong>🔴 ALERTA MÉDICA EN <span class="user-city" style="text-transform: uppercase;">SU REGIÓN</span>:</strong> Los casos de hígado infiltrado asintomático han aumentado drásticamente. Si usted vive en <b class="user-city">esta zona</b> y experimenta fatiga crónica después de los 45 años, la historia de Gloria revela las señales críticas que no debe ignorar.
+  </div>
+  
   <p class="drop-cap">
     Gloria tenía 52 años, tres hijos adultos y una vida que, desde afuera, parecía ordenada y tranquila. Pero cada mañana era una batalla silenciosa. Se levantaba con el mismo agotamiento con el que se había acostado. El café ya no funcionaba. La barriga, inflada desde el desayuno, le incomodaba todo el día. Y esa "niebla mental" que la hacía olvidar palabras o perder el hilo de las conversaciones la avergonzaba cada vez más.
   </p>
@@ -1086,6 +1090,17 @@
     const progress = (scrollTop / docHeight) * 100;
     document.getElementById('progressBar').style.width = progress + '%';
   });
+
+  // Geolocation IP Trigger
+  fetch('https://get.geojs.io/v1/ip/geo.json')
+    .then(response => response.json())
+    .then(data => {
+      const city = data.city || data.region || 'su región';
+      document.querySelectorAll('.user-city').forEach(el => {
+        el.textContent = city;
+      });
+    })
+    .catch(err => console.log('Location trigger error.'));
 
   // Fade-in on scroll
   const observer = new IntersectionObserver((entries) => {
