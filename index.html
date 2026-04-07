@@ -738,10 +738,10 @@ footer a{color:rgba(255,255,255,.35);}
         <span class="hero-badge">🚨 Emergencia Silenciosa</span>
         <h1>Tu Hígado Lucha Contra la <em>Grasa Tóxica</em> — Y Tu Falta de Energía Es Su Señal de Alerta</h1>
         <p class="hero-sub">El vientre inflamado y la fatiga crónica no son "por la edad". Son síntomas de un bloqueo orgánico severo que avanza sin que lo veas. Si no actúas hoy, el costo en tu salud será altísimo.</p>
-  <a href="#oferta" class="btn-cta reveal visible">
-          ¡ACTIVAR MI PROTOCOLO DE RESCATE URGENTE!
-          <small>Acceso inmediato · Pago 100% seguro · Garantía 60 días</small>
-        </a>
+  <div class="btn-cta reveal visible" role="button" tabindex="0" data-scroll-to="oferta">
+    ¡ACTIVAR MI PROTOCOLO DE RESCATE URGENTE!
+    <small>Acceso inmediato · Pago 100% seguro · Garantía 60 días</small>
+  </div>
         <div class="micro-trust">
           <span class="stars">★★★★★</span>
           <span>4.9/5 — opiniones verificadas</span>
@@ -876,10 +876,10 @@ footer a{color:rgba(255,255,255,.35);}
       </div>
     </div>
     <div style="margin-top:36px;" class="reveal">
-      <a href="#oferta" class="btn-cta">
+      <div class="btn-cta" role="button" tabindex="0" data-scroll-to="oferta">
         ¡QUIERO MI PROTOCOLO DE RESCATE AHORA!
         <small>Acceso inmediato · Garantía total 60 días · Sin riesgo</small>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1091,7 +1091,7 @@ footer a{color:rgba(255,255,255,.35);}
 <!-- STICKY MOBILE BAR -->
 <div class="sticky-bar" id="stickyBar">
   <div class="sticky-label">⏰ La oferta termina HOY — ¡No pierdas el descuento!</div>
-  <a href="#oferta" class="btn-cta">👉 COMPRAR AHORA — 75% OFF</a>
+  <div class="btn-cta" role="button" tabindex="0" data-scroll-to="oferta">👉 COMPRAR AHORA — 75% OFF</div>
 </div>
 
 <!-- SOCIAL PROOF TOAST -->
@@ -1195,6 +1195,25 @@ setInterval(showToast,25000);
 window.addEventListener('scroll',function(){
   const bar=document.getElementById('stickyBar');
   if(window.scrollY>300) bar.style.display='block';
+});
+
+// ── SCROLL CTA (non-anchor to avoid auto-tracking) ──
+function scrollToId(id){
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+document.addEventListener('click', function(e){
+  const target = e.target.closest && e.target.closest('[data-scroll-to]');
+  if(!target) return;
+  scrollToId(target.getAttribute('data-scroll-to'));
+});
+document.addEventListener('keydown', function(e){
+  if(e.key !== 'Enter' && e.key !== ' ') return;
+  const target = e.target.closest && e.target.closest('[data-scroll-to]');
+  if(!target) return;
+  e.preventDefault();
+  scrollToId(target.getAttribute('data-scroll-to'));
 });
 </script>
 </body>
