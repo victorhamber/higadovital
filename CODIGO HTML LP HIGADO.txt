@@ -4,24 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ALERTA: Tu Hígado Está en Peligro Silencioso</title>
-<meta name="description" content="Tu hígado podría estar asfixiándose en grasa visceral sin que lo notes. Descubre las 3 fases del colapso hepático y el protocolo de rescate urgente.">
-
-<!-- Favicon -->
-<link rel="icon" href="favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="favicon.png">
-
-<!-- Open Graph / Meta Ads Optimization -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://higadovital.readlyme.com/">
-<meta property="og:title" content="ALERTA URGENTE: El Enemigo Silencioso de Tu Energía">
-<meta property="og:description" content="Si despiertas con fatiga extrema y el abdomen inflamado, tu hígado está sufriendo un bloqueo visceral. Actúa hoy.">
-<meta property="og:image" content="https://higadovital.readlyme.com/favicon.png">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<script defer src="https://api.trajettu.com/sdk/tracker.js?key=site_ygkiiCI1tvT88W3Y8zBy5-6y"></script>
-
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -747,11 +731,26 @@ footer a{color:rgba(255,255,255,.35);}
       </div>
       <div class="hero-img reveal visible" style="animation-delay:.2s">
         <div class="warning-tag">¡URGENTE!</div>
-        <img src="Captura%20de%20tela%202026-04-07%20083002.png" alt="Esteatose hepática (hígado gordo)">
+        <div style="background:linear-gradient(135deg,#1c0000,#2b0000);border-radius:20px;padding:32px;border:1px solid rgba(204,0,0,.3);box-shadow:0 24px 64px rgba(204,0,0,.3);">
+          <div style="font-size:4rem;text-align:center;margin-bottom:16px;">🫀</div>
+          <div style="background:rgba(204,0,0,.15);border:1px solid rgba(204,0,0,.3);border-radius:12px;padding:16px;">
+            <p style="color:#ff6666;font-size:.88rem;font-weight:700;text-align:center;margin-bottom:8px;">NIVEL DE ALERTA</p>
+            <div style="background:rgba(0,0,0,.4);border-radius:50px;height:14px;overflow:hidden;">
+              <div style="width:78%;height:100%;background:linear-gradient(90deg,#ffcc00,#ff6600,#cc0000);border-radius:50px;animation:growBar 2s ease forwards;"></div>
+            </div>
+            <p style="color:rgba(255,255,255,.7);font-size:.78rem;text-align:center;margin-top:8px;">CRÍTICO — Intervención urgente necesaria</p>
+          </div>
+          <ul style="margin-top:18px;list-style:none;display:flex;flex-direction:column;gap:8px;">
+            <li style="color:rgba(255,255,255,.75);font-size:.85rem;display:flex;gap:8px;"><span>⚠️</span> Toxinas sin filtrar en sangre</li>
+            <li style="color:rgba(255,255,255,.75);font-size:.85rem;display:flex;gap:8px;"><span>⚠️</span> Inflamación sistémica activa</li>
+            <li style="color:rgba(255,255,255,.75);font-size:.85rem;display:flex;gap:8px;"><span>⚠️</span> Metabolismo en colapso</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </header>
+<style>@keyframes growBar{from{width:0}to{width:78%}}</style>
 
 <!-- SÍNTOMAS -->
 <section class="sintomas">
@@ -990,7 +989,7 @@ footer a{color:rgba(255,255,255,.35);}
       <span class="discount-pill">🔥 75% OFF — HOY SOLAMENTE</span>
       <span class="price-label">Accede al Protocolo Completo por:</span>
       <span class="price-now">$265.50 <small style="font-size:1.2rem;opacity:.7;font-family:'DM Sans',sans-serif;">MXN</small></span>
-      <a href="https://pay.hotmart.com/Y105081242E?off=sziv59xc&checkoutMode=10" class="btn-danger">
+      <a href="#" class="btn-danger">
         ¡SÍ, QUIERO EVITAR EL DAÑO IRREVERSIBLE!
         <small>Acceso inmediato · Pago seguro · Garantía 60 días</small>
       </a>
@@ -1064,7 +1063,7 @@ footer a{color:rgba(255,255,255,.35);}
     <div class="divider divider-center reveal"></div>
     <p class="section-sub reveal">Tu hígado lleva tiempo enviándote alertas. Hoy tienes la oportunidad de actuar antes de que el daño sea irreversible — y sin arriesgar un solo centavo.</p>
     <div style="margin-top:32px;" class="reveal">
-      <a href="https://pay.hotmart.com/Y105081242E?off=sziv59xc&checkoutMode=10" class="btn-danger" style="max-width:460px;margin:0 auto;">
+      <a href="#oferta" class="btn-danger" style="max-width:460px;margin:0 auto;">
         ¡SÍ, QUIERO SALVAR MI HÍGADO AHORA!
         <small>Acceso inmediato · Garantía total 60 días · Sin riesgo</small>
       </a>
@@ -1112,7 +1111,7 @@ footer a{color:rgba(255,255,255,.35);}
     <span class="modal-alert">⚠️ ESTÁS EN PELIGRO CRÍTICO</span>
     <h2>¿De verdad vas a cerrar y dejar que la Grasa Tóxica siga avanzando?</h2>
     <p>La mayoría de las personas gasta hasta $15,000 MXN reparando daños que podrían haber evitado. Te damos una <strong>ÚLTIMA OPORTUNIDAD</strong> con un descuento adicional exclusivo:</p>
-    <a href="https://pay.hotmart.com/Y105081242E?off=hu1xvuku&checkoutMode=10" class="btn-danger" onclick="closeModal()">
+    <a href="#oferta" class="btn-danger" onclick="closeModal()">
       ¡SÍ, QUIERO EVITAR EL COLAPSO AHORA!
       <small>Oferta exclusiva de salida · Solo por este momento</small>
     </a>
