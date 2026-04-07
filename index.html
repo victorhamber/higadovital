@@ -1215,6 +1215,17 @@ document.addEventListener('keydown', function(e){
   e.preventDefault();
   scrollToId(target.getAttribute('data-scroll-to'));
 });
+
+// ── Checkout links: delay navigation to allow tracking ──
+document.addEventListener('click', function(e){
+  const link = e.target.closest && e.target.closest('a.js-checkout-btn[href]');
+  if(!link) return;
+  if(e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  const href = link.getAttribute('href');
+  if(!href) return;
+  e.preventDefault();
+  setTimeout(function(){ window.location.href = href; }, 250);
+}, true);
 </script>
 </body>
 </html>
